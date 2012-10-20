@@ -27,10 +27,11 @@
             %span.icon-bar
           %a.brand(href="#") Aidacademy
           .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+            %ul.nav.pull-right
+              - if user_signed_in?
+                %li= link_to "Logout", destroy_user_session_path, :method => "delete", :flash => "Sign out user"
+              - else
+                %li= link_to "Login", user_session_path
 
     .container
 
