@@ -61,7 +61,7 @@ Aidacademy::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'http://aidacademy.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'aidacademy.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   # change to false to prevent email from being sent during development
   config.action_mailer.perform_deliveries = true
