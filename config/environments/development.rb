@@ -45,4 +45,12 @@ Aidacademy::Application.configure do
     user_name: "dev",
     password: "devmachine"
   }
+  # Load Pry for rails console
+  silence_warnings do
+    begin
+      require 'pry'
+      IRB = Pry
+    rescue LoadError
+    end
+  end
 end
