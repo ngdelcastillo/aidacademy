@@ -32,4 +32,20 @@ Aidacademy::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'localhost:5000' }
+  config.action_mailer.delivery_method = :smtp
+  # change to false to prevent email from being sent during development
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "pragtechnology.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "dev",
+    password: "devmachine"
+  }
 end
