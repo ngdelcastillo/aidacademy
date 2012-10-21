@@ -2,8 +2,8 @@ production:
   sessions:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
-    options:
-      safe: true
+      options:
+        safe: true
   options:
     skip_version_check: true
 
