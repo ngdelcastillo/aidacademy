@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-# ruby '1.9.3'
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'mongoid'
@@ -14,6 +13,10 @@ gem 'cancan'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
 
+group :production do
+  # Heroku needs to know the ruby version
+  ruby '1.9.3'
+end
 group :development do
   gem 'quiet_assets'
   gem 'pry'
