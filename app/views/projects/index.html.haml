@@ -11,7 +11,6 @@
       %th= model_class.human_attribute_name(:target_amount)
       %th= model_class.human_attribute_name(:summary)
       %th= model_class.human_attribute_name(:published)
-      %th= model_class.human_attribute_name(:user_id)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -24,7 +23,6 @@
         %td= project.target_amount
         %td= project.summary
         %td= project.published
-        %td= project.user_id
         %td=l project.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(project), :class => 'btn btn-mini'

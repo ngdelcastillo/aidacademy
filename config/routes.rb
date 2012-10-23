@@ -1,10 +1,10 @@
 Aidacademy::Application.routes.draw do
-  resources :projects
-
-  get "home/index"
-
-  devise_for :users
   root :to => 'home#index'
+  get "home/index"
+  devise_for :users
+  resources :projects #, :only => [:show, :edit, :destroy, :update]
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
