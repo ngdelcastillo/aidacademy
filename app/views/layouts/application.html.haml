@@ -27,14 +27,14 @@
             %span.icon-bar
           %a.brand(href="/") Aidacademy
           .container.nav-collapse
-            %ul.nav.pull-right
-              - if user_signed_in?
+            - if user_signed_in?
+              %ul.nav.pull-right
                 %li= link_to "Logout", destroy_user_session_path, :method => "delete", :flash => "Sign out user"
-              - else
+            - else
+              %ul.nav.pull-right
                 %li= link_to "Login", user_session_path
 
     .container
-
       .row
         .span12
           = bootstrap_flash

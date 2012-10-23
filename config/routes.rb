@@ -1,4 +1,6 @@
 Aidacademy::Application.routes.draw do
+  resources :projects
+
   get "home/index"
 
   devise_for :users

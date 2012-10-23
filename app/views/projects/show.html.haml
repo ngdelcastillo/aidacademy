@@ -1,0 +1,49 @@
+- model_class = Project
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:_type) + ':'
+  %br
+  = @project._type
+%p
+  %strong= model_class.human_attribute_name(:_id) + ':'
+  %br
+  = @project._id
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @project.name
+%p
+  %strong= model_class.human_attribute_name(:details) + ':'
+  %br
+  = @project.details
+%p
+  %strong= model_class.human_attribute_name(:banner) + ':'
+  %br
+  = @project.banner
+%p
+  %strong= model_class.human_attribute_name(:target_date) + ':'
+  %br
+  = @project.target_date
+%p
+  %strong= model_class.human_attribute_name(:target_amount) + ':'
+  %br
+  = @project.target_amount
+%p
+  %strong= model_class.human_attribute_name(:summary) + ':'
+  %br
+  = @project.summary
+%p
+  %strong= model_class.human_attribute_name(:published) + ':'
+  %br
+  = @project.published
+%p
+  %strong= model_class.human_attribute_name(:user_id) + ':'
+  %br
+  = @project.user_id
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), projects_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(@project), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(@project), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
