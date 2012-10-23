@@ -28,8 +28,21 @@
           %a.brand(href="/") Aidacademy
           .container.nav-collapse
             - if user_signed_in?
-              %ul.nav.pull-right
-                %li= link_to "Logout", destroy_user_session_path, :method => "delete", :flash => "Sign out user"
+              .pull-right
+                .profile_name
+                  .user
+                    = image_tag(current_user.avatar)
+                  %ul.nav
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle"=>"dropdown", :href=>"#"}
+                        = current_user.profile_name
+                        %b.caret
+                      %ul.dropdown-menu      
+                        %li= link_to "Projects", "#"
+                        %li= link_to "Contributions", "#"
+                        %li= link_to "Account Settings", "#"
+                        %li.divider
+                        %li= link_to "Logout", destroy_user_session_path, :method => "delete", :flash => "Sign out user"
             - else
               %ul.nav.pull-right
                 %li= link_to "Login", user_session_path

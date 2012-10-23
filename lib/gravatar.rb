@@ -7,7 +7,7 @@ class Gravatar
   # - rating: Can be one of G, PG, R or X. Default is X.
   # - size: Size of the image. Default is 80px.
   # - default: URL for fallback image if none is found or image exceeds rating.
-  def self.gravatar_url(email,gravatar_options={})
+  def url(email,gravatar_options={})
     grav_url = 'http://www.gravatar.com/avatar.php?'
     grav_url << "gravatar_id=#{Digest::MD5.new.update(email)}"
     grav_url << "&rating=#{gravatar_options[:rating]}" if gravatar_options[:rating]
