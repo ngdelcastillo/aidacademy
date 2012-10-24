@@ -12,6 +12,7 @@ gem 'devise'
 gem 'cancan'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
+gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 
 group :production do
   # Heroku needs to know the ruby version
