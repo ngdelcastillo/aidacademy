@@ -6,6 +6,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def create
+    params[:project]["target_date"] = params[:project]["target_date"].to_d  
     @project = current_user.projects.build(params[:project])
     if @project.save
       redirect_to projects_path, :notice => "Project #{@project.name} has been created"

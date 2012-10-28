@@ -17,6 +17,7 @@ end
 
 module Aidacademy
   class Application < Rails::Application
+    Dir[File.join(Rails.root, "lib", "metadata", "*.rb")].each {|l| require l } # Add metadata
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

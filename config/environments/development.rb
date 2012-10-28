@@ -43,11 +43,11 @@ Aidacademy::Application.configure do
   }
   
   # Load Pry for rails console
-  silence_warnings do
-    begin
-      require 'pry'
-      IRB = Pry
-    rescue LoadError
-    end
-  end
+  # silence_warnings do
+  #   begin
+  #     require 'pry'
+  #     IRB = Pry
+  #   rescue LoadError
+  #   end
+  # end
 end

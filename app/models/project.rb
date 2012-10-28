@@ -1,7 +1,7 @@
 class Project
   include Mongoid::Document
-  include Mongoid::Timestamps
   include Mongoid::Paperclip
+  include Mongoid::Timestamps
   field :name, type: String
   field :details, type: String
   field :banner, type: String
