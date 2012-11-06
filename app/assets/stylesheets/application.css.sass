@@ -14,11 +14,46 @@
 .text-center
   text-align: center
 
-.profile_name
-  float: right
-  line-height: 20px
-  padding: 5px 0
-  .user
-    float: left
-    border: solid white
+// Modify the Navigation Bar
+// $navbar_bg: #0F4FA2
+$navbar_bg: #465666
+$navbar_border: #637A91
+$navbar_txt: #AFCEF7
+$navbar_select: #FBFAFE
+body
+  .navbar-inner
+    .container
+      background-color: $navbar_bg
+      margin: 0px
+      width: 100%
+      padding: 0
+      border-bottom: solid $navbar_border
+      a.brand
+        margin-left: 10px
+      // padding: 0px 50px 0px 50px
+      // a
+      //   color: $navbar_txt
+      // Target the dropdown links
+      // .nav
+      //   .dropdown
+      //     a.dropdown-toggle
+      //       color: $navbar_txt
+      //       text-shadow: 0 0 0 white
+      //   .dropdown.open
+      //     .dropdown-toggle
+      //       background-color: transparent
+      //       color: $navbar_select
+      .profile_name
+        float: right
+        line-height: 20px
+        .user
+          // padding-top: 5px
+          float: left
+          img
+            margin-right: 15px
+            margin-top: -5px
+            border-radius: 20px
+  .container
+    padding-top: 80px
+  //   background-image: url(farmer.png)
 

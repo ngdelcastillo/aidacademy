@@ -1,10 +1,12 @@
 Aidacademy::Application.routes.draw do
+
   root :to => 'home#index'
   get "home/index"
   devise_for :users
   resources :projects #, :only => [:show, :edit, :destroy, :update]
 
-
+  # Have a page that displays the account details
+  match '/account' => 'account#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

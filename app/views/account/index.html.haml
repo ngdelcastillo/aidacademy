@@ -1,0 +1,5 @@
+.row-fluid
+  .span4.profile_pic
+    = image_tag(current_user.avatar("200px"))
+  .span8
+    %h1= current_user.profile_name

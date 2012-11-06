@@ -19,12 +19,12 @@ class User
   def profile_name
     self.first_name + ' ' + self.last_name
   end
-  def avatar
+  def avatar(size = "30px")
     if image_url.present?
       image_url
     else
       gravatar = Gravatar.new
-      gravatar.url(email, :size => "30px")
+      gravatar.url(email, :size => size)
     end
   end
   
