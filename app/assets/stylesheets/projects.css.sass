@@ -1,7 +1,99 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Mixin for Projects
+@mixin gradient-color($color-light, $color-dark)
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color-light), to($color-dark))
+  background-image: -webkit-linear-gradient(top, $color-light, $color-dark) 
+  background-image:    -moz-linear-gradient(top, $color-light, $color-dark)
+  background-image:     -ms-linear-gradient(top, $color-light, $color-dark)
+  background-image:      -o-linear-gradient(top, $color-light, $color-dark)
+@mixin rounded-corner($size)
+  -moz-border-radius: $size
+  -webkit-border-radius: $size
+  border-radius: $size
+@mixin rounded-corner-top($size)
+  -webkit-border-top-left-radius: $size
+  -moz-border-radius-topleft: $size
+  border-top-left-radius: $size 
+  -webkit-border-top-right-radius: $size
+  -moz-border-radius-topright: $size
+  border-top-right-radius: $size
+@mixin rounded-corner-bottom($size)
+  -webkit-border-bottom-left-radius: $size
+  -moz-border-radius-bottomleft: $size
+  border-bottom-left-radius: $size 
+  -webkit-border-bottom-right-radius: $size
+  -moz-border-radius-bottomright: $size
+  border-bottom-right-radius: $size
+
+// Styles
 .details
   width: 606px
 .amount
   width: 136px
+// Project Menu
+$menu_bg: #C64012
+.menu
+  padding-top: 0px
+  .navbar-fixed-top
+    top: 40px
+  .navbar
+    margin: 0
+    .navbar-inner
+      @include rounded-corner(8px)
+      @include rounded-corner-bottom(0px)
+      border: 3px solid $menu_bg
+      .btn-group
+        a
+          .last-child
+            -webkit-border-top-left-radius: 0px
+            -moz-border-radius-topleft: 0px
+            border-top-left-radius: 0px
+            -webkit-border-bottom-left-radius: 0px
+            -moz-border-radius-bottomleft: 0px
+            border-bottom-left-radius: 0px
+          .first-child
+            -webkit-border-top-right-radius: 0px
+            -moz-border-radius-topright: 0px
+            border-top-right-radius: 0px
+            -webkit-border-bottom-right-radius: 0px
+            -moz-border-radius-bottomright: 0px
+            border-bottom-right-radius: 0px
+          
+// Project Index
+$projects_bg: #637A91
+.container
+  margin: 0
+  width: 100%
+  padding: 0
+  .row
+    .projects
+      @include rounded-corner(8px)
+      @include rounded-corner-top(0px)
+      // background-color: $projects_bg
+      @include gradient-color($projects_bg, darken($projects_bg, 10%))
+      .project
+        margin: 20px 8px 10px 10px
+        // margin-right: 50px
+        text-decoration: none
+        width: 260px
+        .thumbnail
+          width: 260px
+          height: 400px
+          float: left
+          margin: 5px 10px
+          background-image: url('farmer.png')
+          // background-color: white
+          padding: 0
+          border: 3px solid darken($projects_bg, 20%)
+          border-radius: 8px
+          img
+            height: 200px
+            @include rounded-corner(4px 4px 0 0)
+          .caption
+            .project-title
+            .project-summary
+      // background-color: $project_frame 
+      // text-align: center

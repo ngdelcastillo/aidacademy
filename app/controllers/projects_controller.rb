@@ -2,7 +2,7 @@ class ProjectsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:show]
   before_filter :resource, :only => [:show, :edit, :destroy, :update]
   def index
-    @projects = current_user.projects.all.limit(10)
+    @projects = current_user.projects.all.order_by(:updated_at => "desc").limit(10)
   end
 
   def create
@@ -11,7 +11,7 @@ class ProjectsController < InheritedResources::Base
     if @project.save
       redirect_to projects_path, :notice => "Project #{@project.name} has been created"
     else
-      render :action => "new"
+      render :action => "new", :notice => "Yo!"
     end
   end
 end

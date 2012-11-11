@@ -1,4 +1,4 @@
-Aidacademy::Application.routes.draw do
+Campuspledge::Application.routes.draw do
 
   root :to => 'home#index'
   get "home/index"

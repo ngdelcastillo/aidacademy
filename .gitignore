@@ -16,3 +16,5 @@
 
 # Ignore .swp
 *.swp
+/vendor/*
+/public/system/*

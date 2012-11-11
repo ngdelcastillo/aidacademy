@@ -27,6 +27,8 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="/") CampusPledge
+          -# %a.brand(href="/")
+          -#   = image_tag "logo.jpeg"
           .container.nav-collapse
             -if user_signed_in?
               .pull-right
@@ -50,9 +52,8 @@
 
     .container
       .row
-        .span12
-          = bootstrap_flash
-          = yield
+        = bootstrap_flash
+        = yield
         -# .span3
         -#   .well.sidebar-nav
         -#     %h3 Sidebar

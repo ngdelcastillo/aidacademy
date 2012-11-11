@@ -12,4 +12,6 @@ class Project
 
   has_mongoid_attached_file :poster_photo, :styles => {:thumb => "80x80#", :medium => "220x165#", :large => "400x400#"}   
   belongs_to :user
+  validates_presence_of :name, :poster_photo, :target_date, :target_amount, :summary
+  validates_numericality_of :target_amount
 end

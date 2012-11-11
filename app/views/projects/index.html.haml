@@ -1,31 +1,70 @@
-- model_class = Project
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:details)
-      %th= model_class.human_attribute_name(:banner)
-      %th= model_class.human_attribute_name(:target_date)
-      %th= model_class.human_attribute_name(:target_amount)
-      %th= model_class.human_attribute_name(:summary)
-      %th= model_class.human_attribute_name(:published)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @projects.each do |project|
-      %tr
-        %td= project.name
-        %td= project.details
-        %td= project.banner
-        %td= project.target_date.to_s
-        %td= project.target_amount
-        %td= project.summary
-        %td= project.published
-        %td=l project.created_at
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(project), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(project), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+.menu
+  .navbar
+    .navbar-inner
+      %ul.nav
+        %li.active
+          = link_to "Projects", "/projects"
+        %li
+          = link_to "Account", "#"
+      .pull-right
+        .btn-group
+          %a(href="/projects/new")
+            %button.btn.first-child
+              Create
+          %a(href="#")
+            %button.btn.btn-info.last-child
+              Help
+.row-fluid.projects
+  %ul.thumbnails
+  - @projects.each do |project|
+    %li.project.span4
+      .thumbnail
+        - if(project.poster_photo?)
+          = image_tag project.poster_photo.url(:medium)
+        -else
+          = image_tag "notfound.png"
+        .caption
+          .project-title
+            %h3
+              = link_to project.name, project_path(project)
+          -# %h3= project.name
+          .project-summary
+            %p= h truncate(project.summary, :length => 100)
+        -# .project
+        -#   .poster
+        -#     = image_tag "notfound.png"
 
-= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary'
+
+
+
+-# - model_class = Project
+-# .page-header
+-#   %h1=t '.title', :default => model_class.model_name.human.pluralize
+-# %table.table.table-striped
+-#   %thead
+-#     %tr
+-#       %th= model_class.human_attribute_name(:name)
+-#       %th= model_class.human_attribute_name(:details)
+-#       %th= model_class.human_attribute_name(:banner)
+-#       %th= model_class.human_attribute_name(:target_date)
+-#       %th= model_class.human_attribute_name(:target_amount)
+-#       %th= model_class.human_attribute_name(:summary)
+-#       %th= model_class.human_attribute_name(:published)
+-#       %th= model_class.human_attribute_name(:created_at)
+-#       %th=t '.actions', :default => t("helpers.actions")
+-#   %tbody
+-#     - @projects.each do |project|
+-#       %tr
+-#         %td= project.name
+-#         %td= project.details
+-#         %td= project.banner
+-#         %td= project.target_date.to_s
+-#         %td= project.target_amount
+-#         %td= project.summary
+-#         %td= project.published
+-#         %td=l project.created_at
+-#         %td
+-#           = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(project), :class => 'btn btn-mini'
+-#           = link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(project), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+-# = link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary'

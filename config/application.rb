@@ -15,7 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Aidacademy
+module Campuspledge
   class Application < Rails::Application
     Dir[File.join(Rails.root, "lib", "metadata", "*.rb")].each {|l| require l } # Add metadata
     # Settings in config/environments/* take precedence over those specified here.

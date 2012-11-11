@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Aidacademy::Application.load_tasks
+Campuspledge::Application.load_tasks
